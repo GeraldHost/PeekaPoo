@@ -7,7 +7,7 @@ const timing = (animation, toValue, duration = 400, cb) =>
   Animated.timing(animation, {
     toValue,
     duration,
-    useNativeDriver: true,
+    useNativeDriver: false,
   }).start(cb);
 
 export const usePanAnimation = () => {
