@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Base } from "./components/base";
 import { Poop } from "./components/poop";
 import { Lower } from "./components/lower";
-import { useLinearAnimation } from "./useLinearAnimation";
+import { usePanAnimation } from "./usePanAnimation";
 
 export default function App() {
-  const [index, setIndex] = useState(0);
-  const { linearAnimation, panResponder } = useLinearAnimation([
-    index,
-    setIndex,
-  ]);
+  const { linearAnimation, panResponder, index } = usePanAnimation();
   return (
     <Base {...panResponder.panHandlers} linearAnimation={linearAnimation}>
       <Lower />
-      <Poop />
+      <Poop linearAnimation={linearAnimation} index={index} />
     </Base>
   );
 }
