@@ -9,7 +9,7 @@ export default function App() {
   const { linearAnimation, panResponder, index } = usePanAnimation();
   return (
     <Base {...panResponder.panHandlers} linearAnimation={linearAnimation}>
-      <Lower />
+      <Lower linearAnimation={linearAnimation}/>
       <Poop linearAnimation={linearAnimation} index={index} />
     </Base>
   );

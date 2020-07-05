@@ -13,8 +13,8 @@ export const Poop = ({ linearAnimation, index }) => {
           transform: [
             {
               scale: linearAnimation.interpolate({
-                inputRange: [0, 50, 100],
-                outputRange: [1, 0, 1],
+                inputRange: [0, 50, 100, 150, 200],
+                outputRange: [1, 0, 1, 0, 1],
               }),
             },
           ],

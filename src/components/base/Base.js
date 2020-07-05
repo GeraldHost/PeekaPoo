@@ -12,14 +12,14 @@ const AnimatedGradient = Animated.createAnimatedComponent(GradientBackground);
 
 export const Base = ({ children, linearAnimation, ...props }) => {
   const colour1 = linearAnimation.interpolate({
-    inputRange: [0, 100],
-    outputRange: ["#D7F7FF", "#F08CA2"],
+    inputRange: [0, 100, 200],
+    outputRange: ["#D7F7FF", "#F08CA2", "#D7F7FF"],
     extrapolate: "clamp",
   });
 
   const colour2 = linearAnimation.interpolate({
-    inputRange: [0, 100],
-    outputRange: ["#D7F7FF", "#F8D490"],
+    inputRange: [0, 100, 200],
+    outputRange: ["#D7F7FF", "#F8D490", "#D7F7FF"],
     extrapolate: "clamp",
   });
 

@@ -5,9 +5,9 @@ const windowHeight = Dimensions.get("window").height;
 export const styles = StyleSheet.create({
   base: {
     flex: 1,
+    alignItems: "center",
   },
   lower: {
-    backgroundColor: "#94D8A5",
     position: "absolute",
     bottom: 0,
     right: 0,
@@ -20,5 +20,12 @@ export const styles = StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
+    alignItems: "center",
+  },
+  circle: {
+    position: "absolute",
+    top: windowHeight * 0.59,
+    width: windowHeight * 2,
+    height: windowHeight * 2,
   },
 });
