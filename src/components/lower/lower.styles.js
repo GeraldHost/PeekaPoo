@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
   },
   circle: {
     position: "absolute",
-    top: windowHeight * 0.59,
+    top: windowHeight * 0.55,
     width: windowHeight * 2,
     height: windowHeight * 2,
   },
