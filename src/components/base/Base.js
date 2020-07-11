@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Animated, Dimensions } from "react-native";
 
-import Trees from "./trees.svg";
+import Trees from "./trees2.svg";
 import Clouds from "./clouds.svg";
 import { styles } from "./base.styles";
 import { GradientBackground } from "./Gradient";
@@ -30,7 +30,7 @@ export const Base = ({ children, linearAnimation, ...props }) => {
       style={styles.base}
       {...props}
     >
-      <Trees height="100%" style={styles.bg} />
+      <Trees height="100%" style={styles.trees} />
       <Animated.View
         style={[
           {
