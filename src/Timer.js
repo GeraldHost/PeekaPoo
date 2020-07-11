@@ -17,10 +17,6 @@ const styles = StyleSheet.create({
 const formatNumber = (n) => `${n.length >= 2 ? "" : "0"}${n}`
 
 const Timer = () => {
-  // FIXME: don't actually need to track time in state.
-  // instead we can inc this inside a local function as the
-  // user doesn't need to see this timer counting as the phone
-  // will be face down
   const [displayTime, setDisplayTime] = useState("");
   const timerId = useRef(null);
   const time = useRef(null);
