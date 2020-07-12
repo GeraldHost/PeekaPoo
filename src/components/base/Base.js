@@ -30,6 +30,7 @@ export const Base = ({ children, linearAnimation, ...props }) => {
       style={styles.base}
       {...props}
     >
+      {/* TODO: these trees should probably be in lower */}
       <Trees height="100%" style={styles.trees} />
       <Animated.View
         style={[

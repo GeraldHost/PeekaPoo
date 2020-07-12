@@ -1,10 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
 
-import { Base } from "./components/base";
-import { Button } from "./components/button";
-import { Poop } from "./components/poop";
-import { Lower } from "./components/lower";
+import { Base, Poop, Lower, Button } from "./components";
 import { usePanAnimation } from "./usePanAnimation";
 
 export default function PoopSelect() {
@@ -13,7 +9,7 @@ export default function PoopSelect() {
     <Base {...panResponder.panHandlers} linearAnimation={linearAnimation}>
       <Lower linearAnimation={linearAnimation} />
       <Poop linearAnimation={linearAnimation} index={index} />
-      <Button>Select</Button>
+      <Button text="Select" />
     </Base>
   );
 }
