@@ -1,12 +1,16 @@
 import React from "react";
 import { View } from "react-native";
-import { styles } from "./button.styles";
-import { Text } from "../Text";
+import TouchableScale from "react-native-touchable-scale";
 
-export const Button = ({ text }) => (
+import { Text } from "../Text";
+import { styles } from "./button.styles";
+
+export const Button = ({ text, onPress }) => (
   <View style={styles.buttonContainer}>
-    <View style={styles.button}>
-      <Text style={styles.buttonText}>{text}</Text>
-    </View>
+    <TouchableScale onPress={onPress} activeScale={1.05}>
+      <View style={styles.button}>
+        <Text style={styles.buttonText}>{text}</Text>
+      </View>
+    </TouchableScale>
   </View>
 );
