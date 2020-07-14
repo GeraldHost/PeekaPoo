@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { View, StyleSheet } from "react-native";
 import { Text } from "./components";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
   base: {
@@ -27,7 +28,7 @@ const Timer = () => {
   const [startCountdown, setStartCountdown] = useState(10);
   const [displayTime, setDisplayTime] = useState(false);
 
-  const showCountdown = startCountdown > 0;
+  const countingDown = startCountdown > 0;
 
   const formatTime = (t) => {
     const left = Math.floor(t / 60);
@@ -38,6 +39,10 @@ const Timer = () => {
   const printTime = () => {
     clearTimeout(timerId.current);
     setDisplayTime(formatTime(time.current));
+  };
+
+  const foundMe = () => {
+    if (!countingDown) printTime();
   };
 
   useEffect(() => {
@@ -58,21 +63,17 @@ const Timer = () => {
     };
   }, []);
 
-
-  // FIXME: remove this just for testing
-  useEffect(() => {
-    const timer = setTimeout(() => printTime(), 14000);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <View style={styles.base}>
-      {showCountdown && (<>
-        <Text style={styles.timeText}>{startCountdown}</Text>
-      <Text style={styles.bodyText}>Hide the phone!</Text>
-      </>
+    <View style={styles.base} onTouchStart={foundMe}>
+      {countingDown && (
+        <>
+          <Text style={styles.timeText}>{startCountdown}</Text>
+          <Text style={styles.bodyText}>Hide the phone!</Text>
+        </>
       )}
-      {displayTime && <Text style={styles.timeText}>{displayTime}</Text>}
+      {!countingDown && displayTime && (
+        <Text style={styles.timeText}>{displayTime}</Text>
+      )}
     </View>
   );
 };
