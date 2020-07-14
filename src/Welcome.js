@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const Welcome = () => {
+const Welcome = ({ next }) => {
   return (
     <View style={baseStyles.base}>
       <Trees
@@ -73,7 +73,7 @@ const Welcome = () => {
           </Text>
         </View>
       </View>
-      <Button text="Ready" />
+      <Button text="Ready" onPress={next} />
     </View>
   );
 };

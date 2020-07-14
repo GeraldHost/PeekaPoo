@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { View, StyleSheet } from "react-native";
-import { Text } from "./components";
+import { Text, Button } from "./components";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 40,
   },
-  timeText: {
+  bigText: {
     color: "white",
     fontSize: 80,
   },
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 
 const formatNumber = (n) => `${n.length >= 2 ? "" : "0"}${n}`;
 
-const Timer = () => {
+const Timer = ({ first }) => {
   const time = useRef(null);
   const timerId = useRef(null);
   const [startCountdown, setStartCountdown] = useState(10);
@@ -49,7 +49,10 @@ const Timer = () => {
     if (startCountdown <= 0) {
       timerId.current = setInterval(() => time.current++, 1000);
     }
-    return () => clearTimeout(timerId.current);
+    return () => {
+      time.current = 0;
+      clearTimeout(timerId.current);
+    };
   }, [startCountdown]);
 
   useEffect(() => {
@@ -67,12 +70,18 @@ const Timer = () => {
     <View style={styles.base} onTouchStart={foundMe}>
       {countingDown && (
         <>
-          <Text style={styles.timeText}>{startCountdown}</Text>
+          <Text style={styles.bigText}>{startCountdown}</Text>
           <Text style={styles.bodyText}>Hide the phone!</Text>
         </>
       )}
+      {!countingDown && !displayTime && (
+        <Text style={styles.bigText}>Press me!</Text>
+      )}
       {!countingDown && displayTime && (
-        <Text style={styles.timeText}>{displayTime}</Text>
+        <>
+          <Text style={styles.bigText}>{displayTime}</Text>
+          <Button text="Reset" onPress={first} />
+        </>
       )}
     </View>
   );
