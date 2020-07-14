@@ -5,7 +5,6 @@ Sound.setCategory("Playback");
 
 const fart = () => {
   const fartIndex = Math.round(Math.random() * 9);
-  console.log("FI", fartIndex);
   const sound = new Sound(
     `farts/${fartIndex}.wav`,
     Sound.MAIN_BUNDLE,
