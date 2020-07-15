@@ -1,4 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const h = Dimensions.get("window").height;
 
 export const styles = StyleSheet.create({
   trees: {
@@ -14,7 +16,7 @@ export const styles = StyleSheet.create({
   },
   clouds: {
     left: -20,
-    marginTop: 50,
+    marginTop: h * 0.05,
   },
   base: {
     flex: 1,

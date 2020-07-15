@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { scale } from "../Text";
 
 export const styles = StyleSheet.create({
   buttonContainer: {
@@ -12,13 +13,13 @@ export const styles = StyleSheet.create({
     backgroundColor: "black",
     justifyContent: "center",
     alignItems: "center",
-    width: 100,
-    height: 100,
+    width: scale(100),
+    height: scale(100),
     borderRadius: 50,
   },
   buttonText: {
     color: "white",
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: scale(20),
   },
 });

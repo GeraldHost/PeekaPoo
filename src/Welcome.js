@@ -5,7 +5,7 @@ import Trees from "./components/base/trees.svg";
 import CircleBg from "./components/lower/circle.svg";
 import WelcomeHeader from "./welcome-header.svg";
 
-import { baseStyles, lowerStyles, Button, Text } from "./components";
+import { baseStyles, lowerStyles, Button, Text, scale } from "./components";
 
 const styles = StyleSheet.create({
   base: {
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   splash: {
     margin: 30,
     marginBottom: 60,
-    marginTop: 160,
+    marginTop: scale(120),
     flex: 1,
     alignItems: "center",
     backgroundColor: "white",
@@ -33,12 +33,13 @@ const styles = StyleSheet.create({
   },
   splashHeader: {
     fontSize: 50,
+    marginTop: -10,
   },
   splashBody: {
     textAlign: "center",
-    fontSize: 25,
-    marginTop: 25,
-  }
+    fontSize: scale(25),
+    marginTop: scale(15),
+  },
 });
 
 const Welcome = ({ next }) => {

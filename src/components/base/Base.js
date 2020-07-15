@@ -31,7 +31,7 @@ export const Base = ({ children, linearAnimation, ...props }) => {
       {...props}
     >
       {/* TODO: these trees should probably be in lower */}
-      <Trees height="100%" style={styles.trees} />
+      <Trees height="100%" style={styles.trees} width={w * 1.1} />
       <Animated.View
         style={[
           {
@@ -47,7 +47,7 @@ export const Base = ({ children, linearAnimation, ...props }) => {
           styles.cloudsContainer,
         ]}
       >
-        <Clouds style={styles.clouds} />
+        <Clouds style={styles.clouds} width={w * 5}/>
       </Animated.View>
       {children}
     </AnimatedGradient>
