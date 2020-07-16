@@ -1,11 +1,14 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
 
 import Trees from "./components/base/trees.svg";
 import CircleBg from "./components/lower/circle.svg";
 import WelcomeHeader from "./welcome-header.svg";
 
 import { baseStyles, lowerStyles, Button, Text, scale } from "./components";
+
+const w = Dimensions.get("window").width;
+const welcomeHeaderWidth = 150;
 
 const styles = StyleSheet.create({
   base: {
@@ -26,10 +29,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
     paddingTop: 0,
+    justifyContent: "center",
     padding: 30,
   },
   welcomeHeader: {
-    marginTop: -80,
+    position: "absolute",
+    left: (w/2) - (welcomeHeaderWidth/2) - 30,
+    top: -60,
   },
   splashHeader: {
     fontSize: 50,
@@ -62,7 +68,7 @@ const Welcome = ({ next }) => {
       </View>
       <View style={styles.splashContainer}>
         <View style={styles.splash}>
-          <WelcomeHeader style={styles.welcomeHeader} />
+          <WelcomeHeader style={styles.welcomeHeader} width={welcomeHeaderWidth} />
           <Text style={styles.splashBody}>Welcome to</Text>
           <Text style={styles.splashHeader}>Peekapoo</Text>
           <Text style={styles.splashBody}>1. Select a poo</Text>
