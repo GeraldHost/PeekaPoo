@@ -8,6 +8,7 @@ import WelcomeHeader from "./welcome-header.svg";
 import { baseStyles, lowerStyles, Button, Text, scale } from "./components";
 
 const w = Dimensions.get("window").width;
+const h = Dimensions.get("window").height;
 const welcomeHeaderWidth = 150;
 
 const styles = StyleSheet.create({
@@ -29,8 +30,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
     paddingTop: 0,
-    justifyContent: "center",
     padding: 30,
+    ...(h > 600 ? { justifyContent: "center" } : {}),
   },
   welcomeHeader: {
     position: "absolute",

@@ -7,6 +7,7 @@ import RainbowBg from "./rainbow-bg.svg";
 import Norman from "./components/poop/cece.svg";
 
 const w = Dimensions.get("window").width;
+const h = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   base: {
@@ -21,6 +22,7 @@ const styles = StyleSheet.create({
   },
   bigText: {
     color: "white",
+    margin: -15,
     fontSize: scale(80),
   },
   rainbowContainer: {
@@ -35,6 +37,7 @@ const styles = StyleSheet.create({
   },
   rainbow: {
     position: "absolute",
+    top: h < 600 ? -(h * 0.15) : 0,
   },
   pooContainer: {
     alignItems: "center",
@@ -48,7 +51,7 @@ const maybeFart = () => {
     return Math.floor(Math.random() * Math.floor(max));
   }
   const rand = getRandomInt(10);
-  console.log(rand)
+  console.log(rand);
   if (rand === 3) {
     fart();
   }
@@ -80,7 +83,7 @@ const Timer = ({ first }) => {
   // the timer
   useEffect(() => {
     timerId.current = setInterval(() => {
-      if (startCountdown <= 0){
+      if (startCountdown <= 0) {
         time.current++;
         maybeFart();
       }
@@ -114,12 +117,12 @@ const Timer = ({ first }) => {
       {!countingDown && !displayTime && (
         <Text style={styles.bigText}>Press me!</Text>
       )}
-      {/* {!countingDown && displayTime && ( */}
+      {!countingDown && displayTime && (
         <>
           <View style={styles.rainbowContainer}>
             <RainbowBg style={styles.rainbow} />
             <View style={styles.pooContainer}>
-              <Norman width={w * 0.7} />
+              <Norman width={w * 0.7} height={w * 0.7} />
               <Text style={[styles.bodyText, { color: "black" }]}>
                 Peekapoo
               </Text>
@@ -130,7 +133,7 @@ const Timer = ({ first }) => {
           </View>
           <Button text="Reset" onPress={first} />
         </>
-      {/*)}*/}
+      )}
     </View>
   );
 };
